@@ -1,0 +1,15 @@
+name: pypoo-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - numpy
+  - pandas
+  - matplotlib
+  - scipy
+  - jupyterlab
+  - uv
+  - pyyaml
+  - pytest
+  # Add any additional dependencies you need here
