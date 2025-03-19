@@ -146,29 +146,42 @@ Dans le modèle ASM1, la transformation de la matière organique s’effectue en
    Conversion de la fraction lentement biodégradable (particulaire), $X_S$, en substrat soluble rapidement biodégradable, $S_S$.  
    L'équation de la cinétique d'hydrolyse s'exprime par :
 
-    $\rho_7 = k_{H} \cdot \underbrace{\frac{\dfrac{X_S}{X_{B,H}}}{K_X + \dfrac{X_S}{X_{B,H}}}}_{\text{Saturation hydrolytique}} \cdot     \underbrace{\left[\frac{S_O}{S_O + K_{OH}} + \eta_h \cdot \frac{K_{OH}}{K_{OH} + S_O} \cdot \frac{S_{NO}}{S_{NO} + K_{NO}}\right]}_{\substack{\text{Contribution aérobique} \\ \text{et anoxique}}} \cdot X_{B,H}$
+   $$
+   \rho_7 = k_{H} \cdot \underbrace{\frac{\dfrac{X_S}{X_{B,H}}}{K_X + \dfrac{X_S}{X_{B,H}}}}_{\text{Saturation hydrolytique}} \cdot     \underbrace{\left[\frac{S_O}{S_O + K_{OH}} + \eta_h \cdot \frac{K_{OH}}{K_{OH} + S_O} \cdot \frac{S_{NO}}{S_{NO} + K_{NO}}\right]}_{\substack{\text{Contribution aérobique} \\ \text{et anoxique}}} \cdot X_{B,H}
+   $$
+
    - **$k_H$** est la constante de réaction d'hydrolyse.  
    - Le terme $\frac{\frac{X_S}{X_{B,H}}}{K_X + \frac{X_S}{X_{B,H}}}$modélise l'effet de saturation hydrolytique.  
    - Le terme entre crochets décrit l'influence des conditions oxydantes et réductrices :
-     - $\frac{S_O}{S_O + K_{OH}}$correspond à la contribution aérobique,  
-     - $\eta_h \cdot \frac{K_{OH}}{K_{OH} + S_O} \cdot \frac{S_{NO}}{S_{NO} + K_{NO}}$représente la contribution anoxique (où la dégradation se fait en présence de nitrate).  
+     - contribution aérobique
+
+      $$
+      \frac{S_O}{S_O + K_{OH}}
+      $$
+
+     - Contribution anoxique (où la dégradation se fait en présence de nitrate) :
+
+      $$
+      \eta_h \cdot \frac{K_{OH}}{K_{OH} + S_O} \cdot \frac{S_{NO}}{S_{NO} + K_{NO}}
+      $$
+
    - Le facteur final $X_{B,H}$tient compte de la biomasse hétérotrophe active qui catalyse l'hydrolyse.
 
 2. **Croissance**  
    Utilisation du substrat soluble $S_S$par les hétérotrophes pour produire de la biomasse active $X_{B,H}$.  
    La croissance se modélise par l'équation suivante :
 
-    $$
-    \rho_1 = \mu_{mH} \cdot \frac{S_S}{S_S + K_S} \cdot \frac{S_O}{S_O + K_{OH}} \cdot X_{B,H}
-    $$
+   $$
+   \rho_1 = \mu_{mH} \cdot \frac{S_S}{S_S + K_S} \cdot \frac{S_O}{S_O + K_{OH}} \cdot X_{B,H}
+   $$
 
 3. **Lyse**  
    La mort de la biomasse active hétérotrophe conduit à la formation de débris inertes, notés $X_P$, issus de la lyse cellulaire.  
    La cinétique de lyse est donnée par :
 
-    $$
-    \rho_4 = b_H \cdot X_{B,H}
-    $$
+$$
+\rho_4 = b_H \cdot X_{B,H}
+$$
 
 #### Transformation de l'azote
 
@@ -177,27 +190,36 @@ Dans le modèle ASM1, la transformation de l'azote est relativement simple et s'
 1. **Hydrolyse de l’azote particulaire**  
    L’azote organique lié aux particules (noté $X_{ND}$) est hydrolysé en azote organique soluble (noté $S_{ND}$).  
    La vitesse de cette réaction est donnée par :  
+
    $$
    \rho_8 = \rho_7 \cdot \frac{X_{ND}}{X_S}
    $$
+   
    où $\rho_7$représente la vitesse d’hydrolyse de la fraction carbonée particulaire ($X_S$).
 
 2. **Ammonification et nitrification de l’azote organique soluble**  
    Une fois en solution, l’azote organique soluble ($S_{ND}$) est d’abord ammonifié pour former l’azote ammoniacal ($S_{NH}$). La vitesse d’ammonification est décrite par :  
+   
    $$
    \rho_6 = k_a \cdot S_{ND} \cdot X_{B,H}
    $$
+   
    Ensuite, l’ammonium issu de cette réaction est oxydé par des bactéries autotrophes en présence d’oxygène pour former du nitrate ($S_{NO}$). L’étape limitante étant la nitrification (*simplification : nitrosation + nitratation modélisé en une étape*), sa vitesse est modélisée par :  
+   
    $$
    \rho_3 = \mu_{mA} \cdot \frac{S_{NH}}{S_{NH} + K_{NH}} \cdot \frac{S_O}{S_O + K_{OA}} \cdot X_{B,A}
    $$
+   
    La réaction globale de nitrification est :
+   
    $$
    NH_{4}^{+} + 2\, O_2 \rightarrow NO_3^{-} + H_2O + 2\, H^+
    $$
+   
    *(En supposant que tout l'azote est oxydé sous forme de nitrate, la consommation stœchiométrique d'oxygène est de 4.57 g O₂ par g de N-NO₃).*
 
     D'autre part, une partie de l'azote ammoniacal ($S_{NH}$) est assimilée dans la biomasse, proportionnelle à la vitesse de croissance des bactéries autotrophes, tandis que le nitrate produit par la nitrification est ensuite dénitrifié par des bactéries hétérotrophes en conditions anoxiques. La dénitrification est modélisée par :
+    
     $$
     \rho_2 = \mu_{mH} \cdot \frac{S_S}{S_S + K_S} \cdot \frac{K_{OH}}{K_{OH} + S_O} \cdot \frac{S_{NO}}{S_{NO} + K_{NO}} \cdot \eta_g \cdot X_{B,H}
     $$
