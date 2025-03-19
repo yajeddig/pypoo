@@ -146,24 +146,24 @@ Dans le modèle ASM1, la transformation de la matière organique s’effectue en
    Conversion de la fraction lentement biodégradable (particulaire), $X_S$, en substrat soluble rapidement biodégradable, $S_S$.  
    L'équation de la cinétique d'hydrolyse s'exprime par :
 
-   $$
-   \rho_7 = k_{H} \cdot \underbrace{\frac{\dfrac{X_S}{X_{B,H}}}{K_X + \dfrac{X_S}{X_{B,H}}}}_{\text{Saturation hydrolytique}} \cdot     \underbrace{\left[\frac{S_O}{S_O + K_{OH}} + \eta_h \cdot \frac{K_{OH}}{K_{OH} + S_O} \cdot \frac{S_{NO}}{S_{NO} + K_{NO}}\right]}_{\substack{\text{Contribution aérobique} \\ \text{et anoxique}}} \cdot X_{B,H}
-   $$
+$$
+\rho_7 = k_{H} \cdot \underbrace{\frac{\dfrac{X_S}{X_{B,H}}}{K_X + \dfrac{X_S}{X_{B,H}}}}_{\text{Saturation hydrolytique}} \cdot     \underbrace{\left[\frac{S_O}{S_O + K_{OH}} + \eta_h \cdot \frac{K_{OH}}{K_{OH} + S_O} \cdot \frac{S_{NO}}{S_{NO} + K_{NO}}\right]}_{\substack{\text{Contribution aérobique} \\ \text{et anoxique}}} \cdot X_{B,H}
+$$
 
    - **$k_H$** est la constante de réaction d'hydrolyse.  
    - Le terme $\frac{\frac{X_S}{X_{B,H}}}{K_X + \frac{X_S}{X_{B,H}}}$modélise l'effet de saturation hydrolytique.  
    - Le terme entre crochets décrit l'influence des conditions oxydantes et réductrices :
      - contribution aérobique
 
-      $$
-      \frac{S_O}{S_O + K_{OH}}
-      $$
+$$
+\frac{S_O}{S_O + K_{OH}}
+$$
 
      - Contribution anoxique (où la dégradation se fait en présence de nitrate) :
 
-      $$
-      \eta_h \cdot \frac{K_{OH}}{K_{OH} + S_O} \cdot \frac{S_{NO}}{S_{NO} + K_{NO}}
-      $$
+$$
+\eta_h \cdot \frac{K_{OH}}{K_{OH} + S_O} \cdot \frac{S_{NO}}{S_{NO} + K_{NO}}
+$$
 
    - Le facteur final $X_{B,H}$tient compte de la biomasse hétérotrophe active qui catalyse l'hydrolyse.
 
@@ -171,9 +171,9 @@ Dans le modèle ASM1, la transformation de la matière organique s’effectue en
    Utilisation du substrat soluble $S_S$par les hétérotrophes pour produire de la biomasse active $X_{B,H}$.  
    La croissance se modélise par l'équation suivante :
 
-   $$
-   \rho_1 = \mu_{mH} \cdot \frac{S_S}{S_S + K_S} \cdot \frac{S_O}{S_O + K_{OH}} \cdot X_{B,H}
-   $$
+$$
+\rho_1 = \mu_{mH} \cdot \frac{S_S}{S_S + K_S} \cdot \frac{S_O}{S_O + K_{OH}} \cdot X_{B,H}
+$$
 
 3. **Lyse**  
    La mort de la biomasse active hétérotrophe conduit à la formation de débris inertes, notés $X_P$, issus de la lyse cellulaire.  
@@ -194,32 +194,32 @@ Dans le modèle ASM1, la transformation de l'azote est relativement simple et s'
 $$
 \rho_8 = \rho_7 \cdot \frac{X_{ND}}{X_S}
 $$
-   
+
    où $\rho_7$représente la vitesse d’hydrolyse de la fraction carbonée particulaire ($X_S$).
 
 2. **Ammonification et nitrification de l’azote organique soluble**  
    Une fois en solution, l’azote organique soluble ($S_{ND}$) est d’abord ammonifié pour former l’azote ammoniacal ($S_{NH}$). La vitesse d’ammonification est décrite par :  
-   
+
 $$
 \rho_6 = k_a \cdot S_{ND} \cdot X_{B,H}
 $$
-   
+
    Ensuite, l’ammonium issu de cette réaction est oxydé par des bactéries autotrophes en présence d’oxygène pour former du nitrate ($S_{NO}$). L’étape limitante étant la nitrification (*simplification : nitrosation + nitratation modélisé en une étape*), sa vitesse est modélisée par :  
-   
+
 $$
 \rho_3 = \mu_{mA} \cdot \frac{S_{NH}}{S_{NH} + K_{NH}} \cdot \frac{S_O}{S_O + K_{OA}} \cdot X_{B,A}
 $$
-   
+
    La réaction globale de nitrification est :
-   
+
 $$
 NH_{4}^{+} + 2\, O_2 \rightarrow NO_3^{-} + H_2O + 2\, H^+
 $$
-   
+
    *(En supposant que tout l'azote est oxydé sous forme de nitrate, la consommation stœchiométrique d'oxygène est de 4.57 g O₂ par g de N-NO₃).*
 
    D'autre part, une partie de l'azote ammoniacal ($S_{NH}$) est assimilée dans la biomasse, proportionnelle à la vitesse de croissance des bactéries autotrophes, tandis que le nitrate produit par la nitrification est ensuite dénitrifié par des bactéries hétérotrophes en conditions anoxiques. La dénitrification est modélisée par :
-    
+
 $$
 \rho_2 = \mu_{mH} \cdot \frac{S_S}{S_S + K_S} \cdot \frac{K_{OH}}{K_{OH} + S_O} \cdot \frac{S_{NO}}{S_{NO} + K_{NO}} \cdot \eta_g \cdot X_{B,H}
 $$
@@ -368,64 +368,64 @@ Le modèle ASM1Temp regroupe l’ensemble des transformations biologiques et phy
 1. **Croissance Aérobie des Hétérotrophes**  
    *Transformation :* Consommation du substrat soluble biodégradable ($S_S$) en présence d’oxygène ($S_O$) pour produire de la biomasse hétérotrophe ($X_{BH}$).  
    *Équation :*
-   $
-   \rho_{AerGrowthHetero} = \mu_{H,Temp} \cdot \frac{S_S}{K_S+S_S} \cdot \frac{S_O}{K_{OH}+S_O} \cdot \frac{S_{NH}}{K_{NH\_H}+S_{NH}} \cdot X_{BH}
-   $
+$
+\rho_{AerGrowthHetero} = \mu_{H,Temp} \cdot \frac{S_S}{K_S+S_S} \cdot \frac{S_O}{K_{OH}+S_O} \cdot \frac{S_{NH}}{K_{NH\_H}+S_{NH}} \cdot X_{BH}
+$
 
 2. **Croissance Anoxique (Dénitrification) des Hétérotrophes**  
    *Transformation :* Utilisation du substrat soluble en absence (ou faible concentration) d’oxygène, avec nitrate/nitrite ($S_{NO}$) servant d’accepteur d’électrons.  
    *Équation (exemple) :*
-   $
-   \rho_{AnGrowthHetero} = \mu_{H,Temp} \cdot \frac{S_S}{K_S+S_S} \cdot \frac{K_{OH}}{K_{OH}+S_O} \cdot \frac{S_{NO}}{K_{NO}+S_{NO}} \cdot \frac{S_{NH}}{K_{NH\_H}+S_{NH}} \cdot n_g \cdot X_{BH}
-   $
+$
+\rho_{AnGrowthHetero} = \mu_{H,Temp} \cdot \frac{S_S}{K_S+S_S} \cdot \frac{K_{OH}}{K_{OH}+S_O} \cdot \frac{S_{NO}}{K_{NO}+S_{NO}} \cdot \frac{S_{NH}}{K_{NH\_H}+S_{NH}} \cdot n_g \cdot X_{BH}
+$
 
 3. **Croissance Aérobie des Autotrophes (Nitrification)**  
    *Transformation :* Oxydation de l’ammonium ($S_{NH}$) en nitrate/nitrite ($S_{NO}$) par la biomasse autotrophe ($X_{BA}$).  
    *Équation :*
-   $
-   \rho_{AerGrowthAuto} = \mu_{A,Temp} \cdot \frac{S_{NH}}{K_{NH}+S_{NH}} \cdot \frac{S_O}{K_{OA}+S_O} \cdot X_{BA}
-   $
+$
+\rho_{AerGrowthAuto} = \mu_{A,Temp} \cdot \frac{S_{NH}}{K_{NH}+S_{NH}} \cdot \frac{S_O}{K_{OA}+S_O} \cdot X_{BA}
+$
 
 4. **Décroissance Endogène**  
    - **Hétérotrophes :**
-     $
-     \rho_{DecayOfHetero} = b_{H,Temp} \cdot X_{BH}
-     $
+$
+\rho_{DecayOfHetero} = b_{H,Temp} \cdot X_{BH}
+$
    - **Autotrophes :**
-     $
-     \rho_{DecayOfAuto} = b_{A,Temp} \cdot X_{BA}
-     $
+$
+\rho_{DecayOfAuto} = b_{A,Temp} \cdot X_{BA}
+$
    *Transformation :* Lyse naturelle conduisant à la formation de produits inertes et à la redistribution de l’azote organique.
 
 5. **Hydrolyse du Substrat Particulaire Lentement Biodégradable**  
    *Transformation :* Conversion du substrat particulaire ($X_S$) en substrat soluble ($S_S$).  
    *Équation :*
-   $
-   \rho_{HydrolOfEntrOrg} = k_{h,Temp} \cdot \frac{\frac{X_S}{X_{BH}}}{K_X + \frac{X_S}{X_{BH}}} \cdot \left( \frac{S_O}{K_{OH}+S_O} + n_h \cdot \frac{K_{OH}}{K_{OH}+S_O} \cdot \frac{S_{NO}}{K_{NO}+S_{NO}} \right) \cdot X_{BH}
-   $
+$
+\rho_{HydrolOfEntrOrg} = k_{h,Temp} \cdot \frac{\frac{X_S}{X_{BH}}}{K_X + \frac{X_S}{X_{BH}}} \cdot \left( \frac{S_O}{K_{OH}+S_O} + n_h \cdot \frac{K_{OH}}{K_{OH}+S_O} \cdot \frac{S_{NO}}{K_{NO}+S_{NO}} \right) \cdot X_{BH}
+$
 
 6. **Hydrolyse de l’Azote Organique Particulaire**  
    *Transformation :* Conversion de l’azote organique associé aux particules ($X_{ND}$) en forme soluble ($S_{ND}$).  
    *Équation :*
-   $
-   \rho_{HydrolOfEntrOrgN} = \rho_{HydrolOfEntrOrg} \cdot \frac{X_{ND}}{X_S}
-   $
+$
+\rho_{HydrolOfEntrOrgN} = \rho_{HydrolOfEntrOrg} \cdot \frac{X_{ND}}{X_S}
+$
 
 #### 4.2 Transfert d’Oxygène
 
 - **Saturation en Oxygène**  
   *Transformation :* Détermination de la concentration saturante d’oxygène en fonction de la température.  
   *Équation (exemple) :*
-  $
-  S_{O,sat} = 14.65 - 0.41\,T + 0.00799\,T^2 - 7.78\times10^{-5}\,T^3
-  $
+$
+S_{O,sat} = 14.65 - 0.41\,T + 0.00799\,T^2 - 7.78\times10^{-5}\,T^3
+$
 
 - **Cinétique d’Aération**  
   *Transformation :* Transfert d’oxygène de la phase gazeuse vers la phase liquide.  
   *Équation :*
-  $
-  \rho_{Aeration} = k_{la,Actual} \cdot (S_{O,sat} - S_O)
-  $
+$
+\rho_{Aeration} = k_{la,Actual} \cdot (S_{O,sat} - S_O)
+$
 
 ---
 
@@ -434,19 +434,19 @@ Le modèle ASM1Temp regroupe l’ensemble des transformations biologiques et phy
 Tous les taux cinétiques sont ajustés en fonction de la température réelle du système par une loi exponentielle :
 
 - **Formule Générale :**
-  $
-  k(T) = k_{ref} \cdot \theta^{(T-T_{ref})}
-  $
+$
+k(T) = k_{ref} \cdot \theta^{(T-T_{ref})}
+$
   
 - **Exemples :**
   - Croissance autotrophe :
-    $
-    \mu_{A,Temp} = \mu_A \cdot \theta_{\mu_A}^{(T-T_{ref})}
-    $
+$
+\mu_{A,Temp} = \mu_A \cdot \theta_{\mu_A}^{(T-T_{ref})}
+$
   - Décroissance des biomasses :
-    $
-    b_{H,Temp} = b_H \cdot \theta_{b_H}^{(T-T_{ref})}, \quad b_{A,Temp} = b_A \cdot \theta_{b_A}^{(T-T_{ref})}
-    $
+$
+b_{H,Temp} = b_H \cdot \theta_{b_H}^{(T-T_{ref})}, \quad b_{A,Temp} = b_A \cdot \theta_{b_A}^{(T-T_{ref})}
+$
   
 Les coefficients $\theta$(par exemple $\theta_{\mu_A}$, $\theta_{b_H}$, etc.) permettent de corriger les taux de réaction selon l’écart entre la température actuelle et la température de référence (souvent 20 °C).
 
