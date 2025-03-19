@@ -150,24 +150,24 @@ $$
 \rho_7 = k_{H} \cdot \underbrace{\frac{\dfrac{X_S}{X_{B,H}}}{K_X + \dfrac{X_S}{X_{B,H}}}}_{\text{Saturation hydrolytique}} \cdot     \underbrace{\left[\frac{S_O}{S_O + K_{OH}} + \eta_h \cdot \frac{K_{OH}}{K_{OH} + S_O} \cdot \frac{S_{NO}}{S_{NO} + K_{NO}}\right]}_{\substack{\text{Contribution aérobique} \\ \text{et anoxique}}} \cdot X_{B,H}
 $$
 
-   - **$k_H$** est la constante de réaction d'hydrolyse.  
-   - Le terme $\frac{\frac{X_S}{X_{B,H}}}{K_X + \frac{X_S}{X_{B,H}}}$modélise l'effet de saturation hydrolytique.  
-   - Le terme entre crochets décrit l'influence des conditions oxydantes et réductrices :
-     - contribution aérobique
+- **$k_H$** est la constante de réaction d'hydrolyse.  
+- Le terme $\frac{\frac{X_S}{X_{B,H}}}{K_X + \frac{X_S}{X_{B,H}}}$ modélise l'effet de saturation hydrolytique.  
+- Le terme entre crochets décrit l'influence des conditions oxydantes et réductrices :
+  - contribution aérobique
 
 $$
 \frac{S_O}{S_O + K_{OH}}
 $$
 
-     - Contribution anoxique (où la dégradation se fait en présence de nitrate) :
+- Contribution anoxique (où la dégradation se fait en présence de nitrate) :
 
 $$
 \eta_h \cdot \frac{K_{OH}}{K_{OH} + S_O} \cdot \frac{S_{NO}}{S_{NO} + K_{NO}}
 $$
 
-   - Le facteur final $X_{B,H}$tient compte de la biomasse hétérotrophe active qui catalyse l'hydrolyse.
+- Le facteur final $X_{B,H}$tient compte de la biomasse hétérotrophe active qui catalyse l'hydrolyse.
 
-2. **Croissance**  
+1. **Croissance**  
    Utilisation du substrat soluble $S_S$par les hétérotrophes pour produire de la biomasse active $X_{B,H}$.  
    La croissance se modélise par l'équation suivante :
 
