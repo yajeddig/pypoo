@@ -145,11 +145,9 @@ Dans le modèle ASM1, la transformation de la matière organique s’effectue en
 1. **Hydrolyse**  
    Conversion de la fraction lentement biodégradable (particulaire), $X_S$, en substrat soluble rapidement biodégradable, $S_S$.  
    L'équation de la cinétique d'hydrolyse s'exprime par :
-
 $$
 \rho_7 = k_{H} \cdot \underbrace{\frac{\dfrac{X_S}{X_{B,H}}}{K_X + \dfrac{X_S}{X_{B,H}}}}_{\text{Saturation hydrolytique}} \cdot     \underbrace{\left[\frac{S_O}{S_O + K_{OH}} + \eta_h \cdot \frac{K_{OH}}{K_{OH} + S_O} \cdot \frac{S_{NO}}{S_{NO} + K_{NO}}\right]}_{\substack{\text{Contribution aérobique} \\ \text{et anoxique}}} \cdot X_{B,H}
 $$
-
    - **$k_H$** est la constante de réaction d'hydrolyse.  
    - Le terme $\frac{\frac{X_S}{X_{B,H}}}{K_X + \frac{X_S}{X_{B,H}}}$modélise l'effet de saturation hydrolytique.  
    - Le terme entre crochets décrit l'influence des conditions oxydantes et réductrices :
